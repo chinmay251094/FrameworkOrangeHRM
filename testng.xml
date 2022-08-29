@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--<suite name="All Test Suite" data-provider-thread-count="3">-->
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.chinmay.listeners.Listeners"></listener>
+        <listener class-name="com.chinmay.listeners.MethodInterceptor"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="F:/Framework" thread-count="5" parallel="methods">
+        <classes>
+            <!--<class name="com.chinmay.tests.NavigationTest"/>-->
+            <class name="com.chinmay.tests.SearchTest"/>
+            <!--<class name="com.chinmay.listeners.Runner"/>-->
+        </classes>
+    </test>
+</suite>

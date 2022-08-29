@@ -1,0 +1,10 @@
+package com.chinmay.enums;
+
+public enum Config {
+    URL,
+    BROWSER,
+    OVERRIDEREPORTS,
+    PASSEDSTEPSCREENSHOT,
+    SKIPPEDSTEPSCREENSHOT,
+    FAILEDSTEPSCREENSHOT;
+}
