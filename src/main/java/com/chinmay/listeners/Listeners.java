@@ -1,14 +1,14 @@
 package com.chinmay.listeners;
 
+import com.chinmay.annotations.FrameworkAnnotations;
 import com.chinmay.reports.ExtentReport;
 import com.chinmay.reports.ExtentReportLogger;
+import com.chinmay.reports.ExtentReportManager;
 import lombok.SneakyThrows;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import java.util.Arrays;
 
 public class Listeners implements ITestListener, ISuiteListener {
     @SneakyThrows
@@ -26,6 +26,9 @@ public class Listeners implements ITestListener, ISuiteListener {
     @Override
     public void onTestStart(ITestResult result) {
         ExtentReport.createTests(result.getMethod().getDescription());
+        ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotations.class).author());
+        ExtentReport.addCategory(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotations.class).category());
+        ExtentReport.setBrowser();
     }
 
     @SneakyThrows
@@ -40,7 +43,6 @@ public class Listeners implements ITestListener, ISuiteListener {
         try {
             ExtentReportLogger.fail(result.getMethod().getDescription() + " has failed.", true);
             ExtentReportLogger.fail(result.getThrowable().toString());
-            ExtentReportLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
         } catch (Exception ex) {
             ex.printStackTrace();
         }

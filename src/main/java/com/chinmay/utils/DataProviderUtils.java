@@ -12,7 +12,7 @@ import java.util.Map;
 public class DataProviderUtils {
     private static List<Map<String, String>> completeList = new ArrayList<>();
 
-    @DataProvider
+    @DataProvider(parallel = true)
     public Object[] getData(Method method) throws IOException {
         String testCase = method.getName();
         if (completeList.isEmpty()) {
