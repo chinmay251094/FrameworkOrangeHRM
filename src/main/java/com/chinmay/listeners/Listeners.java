@@ -3,7 +3,6 @@ package com.chinmay.listeners;
 import com.chinmay.annotations.FrameworkAnnotations;
 import com.chinmay.reports.ExtentReport;
 import com.chinmay.reports.ExtentReportLogger;
-import com.chinmay.reports.ExtentReportManager;
 import lombok.SneakyThrows;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
